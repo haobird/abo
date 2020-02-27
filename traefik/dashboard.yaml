@@ -35,14 +35,14 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`who.qikqiak.com`) && PathPrefix(`/tls`)
+  - match: Host(`who.qikqiak3.com`) && PathPrefix(`/tls`)
     kind: Rule
     services:
     - name: whoami
       port: 80
   tls:
     secretName: who-tls
-    
+
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
