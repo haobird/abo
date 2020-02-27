@@ -10,6 +10,22 @@ spec:
     - name: api@internal
       kind: TraefikService
 
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simpleingressroute
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`who.qikqiak.com`) && PathPrefix(`/notls`)
+    kind: Rule
+    services:
+    - name: whoami
+      port: 80
+
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
