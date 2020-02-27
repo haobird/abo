@@ -4,7 +4,7 @@ metadata:
   name: traefik-dashboard
 spec:
   routes:
-  - match: Host(`traefik.domain.com`)
+  - match: Host(`traefik.mzone.me`)
     kind: Rule
     services:
     - name: api@internal
@@ -20,7 +20,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`who.qikqiak3.com`) && PathPrefix(`/notls`)
+  - match: Host(`who.mzone.me`) && PathPrefix(`/notls`)
     kind: Rule
     services:
     - name: whoami
@@ -35,13 +35,16 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`who.qikqiak3.com`) && PathPrefix(`/tls`)
+  - match: Host(`who.mzone.me`) && PathPrefix(`/tls`)
     kind: Rule
     services:
     - name: whoami
       port: 80
   tls:
-    secretName: who-tls
+    certResolver: ali
+    domains:
+    - main: "*.mzone.me"
+    
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -52,7 +55,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`traefik.qikqiak.com`)
+  - match: Host(`traefik.mzone.me`)
     kind: Rule
     services:
     - name: api@internal
@@ -60,7 +63,7 @@ spec:
   tls:
     certResolver: ali
     domains:
-    - main: "*.qikqiak.com"
+    - main: "*.mzone.me"
   # tls:
   #   secretName: who-tls
 # ---
