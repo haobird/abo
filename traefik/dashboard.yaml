@@ -41,7 +41,7 @@ spec:
     - name: whoami
       port: 80
   tls:
-    certResolver: ali
+    certResolver: sample
     domains:
     - main: "*.mzone.me"
     
@@ -61,7 +61,7 @@ spec:
     - name: api@internal
       kind: TraefikService
   tls:
-    certResolver: ali
+    certResolver: sample
     domains:
     - main: "*.mzone.me"
   # tls:

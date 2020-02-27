@@ -56,17 +56,18 @@ spec:
         - --log.level=INFO
         - --accesslog
         # 使用 dns 验证方式
-        - --certificatesResolvers.ali.acme.dnsChallenge.provider=gandi
+        - --certificatesResolvers.sample.acme.dnsChallenge.provider=gandiv5
         # 邮箱配置
         # - --certificatesResolvers.ali.acme.email=ych_1024@163.com
+        - --certificatesResolvers.sample.acme.email="xyqbgn@126.com"
         # 保存 ACME 证书的位置
-        - --certificatesResolvers.ali.acme.storage=/etc/acme/acme.json
+        - --certificatesResolvers.sample.acme.storage=/etc/acme/acme.json
         # 下面是用于测试的ca服务，如果https证书生成成功了，则移除下面参数
-        - --certificatesresolvers.ali.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+        - --certificatesresolvers.sample.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
         envFrom:
         - secretRef:
-            name: traefik-gandi-secret
-            # ALICLOUD_ACCESS_KEY
+            name: traefik-gandiv5-secret
+            GANDIV5_API_KEY
             # ALICLOUD_SECRET_KEY
             # ALICLOUD_REGION_ID
         volumeMounts:
