@@ -1,19 +1,15 @@
 # kubeadm 创建一个单主集群 流程(Ubuntu)
 
-### 卸载docker
+### 一、卸载docker
+
+##### 第一种方式
 
 ```
-mv /var/lib/dpkg/info/{packagename}.* /tmp/
-dpkg --remove --force-remove-reinstreq {packagename}
-apt-get remove {packagename}
-apt-get autoremove && sudo apt-get autoclean
-```
-# 或者
-```
-apt-get purge docker-ce
+apt-get autoremove docker docker-ce docker-engine  docker.io  containerd runc
 ```
 
-# 或者
+##### 第二种方式
+
 ```
 dpkg -l | grep -i docker
 # 根据显示出来的包名卸载
@@ -22,7 +18,21 @@ apt-get autoremove -y --purge   docker-ce docker-ce-cli
 apt-get autoclean
 ```
 
-### 安装docker环境
+##### 第三种方式
+
+```
+ apt-get autoremove docker-ce-*
+```
+
+##### 删除docker的相关配置&和镜像容器目录
+
+```
+rm -rf /etc/systemd/system/docker.service.d
+rm -rf /var/lib/docker
+```
+
+
+### 二、安装docker环境
 
 ```
 # Ubuntu18.04下安装Docker CE
@@ -34,7 +44,7 @@ chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
-### 安装 kubeadm
+### 三、安装 kubeadm
 
 -- 参考链接： https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 
@@ -49,7 +59,7 @@ apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
 ```
 
-### 查看网络组
+### 四、查看网络组
 
 ```
 docker info |grep Cgroup
@@ -81,13 +91,44 @@ kubeadm join 172.26.7.117:6443 --token 1ufl2h.y3w2674qjv87zg29 \
     --discovery-token-ca-cert-hash sha256:75c979871af627ad22f1d5f8c284f06db0308d85a7b0b3bbb6674b8529bac46a
 ```
 
-### 安装dashboard
+### 查看集群信息
+
+-- 参考链接：https://www.qikqiak.com/post/use-kubeadm-install-kubernetes-1.10/
 
 ```
-# 安装
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
-# 查看创建的服务和pod
-kubectl get svc -n kube-system | grep dashboard
+ kubectl get cs
+
+ kubectl get csr
+
 ```
+
+### 添加节点
+
+-- 在节点服务器上执行一到四步骤之后，执行复制主节点上输出的kubeadm join 
+
+```
+kubeadm join 172.26.7.117:6443 --token 1ufl2h.y3w2674qjv87zg29 \
+    --discovery-token-ca-cert-hash sha256:75c979871af627ad22f1d5f8c284f06db0308d85a7b0b3bbb6674b8529bac46a
+```
+
+
+#### 查看节点信息(主节点执行)
+
+```
+kubectl get nodes
+```
+
+### 安装插件
+
+
+
+#### 访问
+```
+
+18.182.117.147:31955
+18.182.117.147
+54.249.84.246
+```
+
 
 
