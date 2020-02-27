@@ -20,7 +20,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`who.qikqiak.com`) && PathPrefix(`/notls`)
+  - match: Host(`who.qikqiak3.com`) && PathPrefix(`/notls`)
     kind: Rule
     services:
     - name: whoami
