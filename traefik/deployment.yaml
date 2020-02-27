@@ -19,8 +19,8 @@ spec:
       serviceAccountName: traefik
       tolerations:
       - operator: "Exists"
-      nodeSelector:
-        kubernetes.io/hostname: ip-172-26-7-117
+      # nodeSelector:
+      #   kubernetes.io/hostname: ip-172-26-7-117
       volumes:
       - name: acme
         hostPath:
