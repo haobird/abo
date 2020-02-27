@@ -67,7 +67,7 @@ spec:
         envFrom:
         - secretRef:
             name: traefik-gandiv5-secret
-            GANDIV5_API_KEY
+            # GANDIV5_API_KEY
             # ALICLOUD_SECRET_KEY
             # ALICLOUD_REGION_ID
         volumeMounts:
