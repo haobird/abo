@@ -30,6 +30,23 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
+  name: ingressroutetls
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`who.qikqiak.com`) && PathPrefix(`/tls`)
+    kind: Rule
+    services:
+    - name: whoami
+      port: 80
+  tls:
+    secretName: who-tls
+    
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
   name: traefik-dashboard-tls
 spec:
   entryPoints:
