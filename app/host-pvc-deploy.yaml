@@ -14,17 +14,17 @@ spec:
       containers:
       - name: nginx
         image: nginx
-        # imagePullPolicy: IfNotPresent
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           name: web
-        # volumeMounts:
-        # - name: www
-        #   mountPath: /usr/share/nginx/html
-      # volumes:
-      # - name: www
-      #   persistentVolumeClaim:
-      #     claimName: opspvc
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: www
+        persistentVolumeClaim:
+          claimName: opspvc
 
 ---
 
