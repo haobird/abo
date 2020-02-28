@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: host-pvc
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: host-pvc
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: www
+        persistentVolumeClaim:
+          claimName: opspvc
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: host-pvc
+  labels:
+    app: host-pvc
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: web
+  selector:
+    app: host-pvc
