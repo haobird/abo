@@ -3,7 +3,7 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: local-storage
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+# volumeBindingMode: WaitForFirstConsumer
 
 ---
 apiVersion: v1
@@ -40,7 +40,7 @@ spec:
   resources:
     requests:
       storage: 8Gi
-  storageClassName: slow
+  storageClassName: local-storage
   selector:
     matchLabels:
       release: "stable"
