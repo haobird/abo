@@ -16,14 +16,6 @@ spec:
   # nfs:
   #   server: 10.151.30.57
   #   path: /data/k8s
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - ip-172-26-7-117
 
 ---
 kind: PersistentVolumeClaim
