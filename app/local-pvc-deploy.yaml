@@ -11,10 +11,10 @@ spec:
       labels:
         app: local-pvc
     spec:
-      tolerations:
-      - operator: "Exists"
-      nodeSelector:
-        kubernetes.io/hostname: ip-172-26-7-117
+      # tolerations:
+      # - operator: "Exists"
+      # nodeSelector:
+      #   kubernetes.io/hostname: ip-172-26-7-117
       containers:
       - name: nginx
         image: nginx
