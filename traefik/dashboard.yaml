@@ -16,7 +16,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`wrr.mzone.com`)
+  - match: Host(`wrr.mzone.me`)
     kind: Rule
     services:
     - name: app-wrr
