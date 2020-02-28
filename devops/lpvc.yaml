@@ -1,5 +1,5 @@
-apiVersion: storage.k8s.io/v1
 kind: StorageClass
+apiVersion: storage.k8s.io/v1
 metadata:
   name: local-storage
 provisioner: kubernetes.io/no-provisioner
@@ -13,10 +13,8 @@ metadata:
 spec:
   capacity:
     storage: 10Gi
-  # volumeMode field requires BlockVolume Alpha feature gate to be enabled.
   volumeMode: Filesystem
-  accessModes:
-  - ReadWriteOnce
+  accessModes: ["ReadWriteOnce"]
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
   local:
@@ -29,25 +27,22 @@ spec:
           operator: In
           values:
           - ip-172-26-7-117
-
+          # - devops-103
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: opslpvc
-  namespace: kube-ops
-  # annotations:
-  #   volume.beta.kubernetes.io/storage-class: "local-storage"
+  name: opslpv
 spec:
   accessModes:
-  - ReadWriteMany
+    - ReadWriteOnce
   volumeMode: Filesystem
   resources:
     requests:
-      storage: 1Gi
+      storage: 8Gi
   storageClassName: slow
-  # selector:
-  #   matchLabels:
-  #     release: "stable"
-  #   matchExpressions:
-  #     - {key: environment, operator: In, values: [dev]}
+  selector:
+    matchLabels:
+      release: "stable"
+    # matchExpressions:
+    #   - {key: environment, operator: In, values: [dev]}
