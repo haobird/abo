@@ -19,13 +19,13 @@ spec:
         ports:
         - containerPort: 80
           name: web
-      #   volumeMounts:
-      #   - name: www
-      #     mountPath: /usr/share/nginx/html
-      # volumes:
-      # - name: www
-      #   persistentVolumeClaim:
-      #     claimName: opspvc
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: www
+        persistentVolumeClaim:
+          claimName: opspvc
 
 ---
 
