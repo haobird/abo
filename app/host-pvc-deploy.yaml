@@ -11,12 +11,12 @@ spec:
       labels:
         app: host-pvc
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: ip-172-26-7-117
+      # nodeSelector:
+      #   kubernetes.io/hostname: ip-172-26-7-117
       containers:
       - name: nginx
         image: nginx
-        imagePullPolicy: IfNotPresent
+        # imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           name: web
