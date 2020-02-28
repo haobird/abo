@@ -4,6 +4,9 @@ metadata:
   name: host-pvc
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: host-pvc
   template:
     metadata:
       labels:
