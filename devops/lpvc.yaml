@@ -40,9 +40,9 @@ spec:
   resources:
     requests:
       storage: 8Gi
-  storageClassName: local-storage
+  storageClassName: slow
   selector:
     matchLabels:
       release: "stable"
-    # matchExpressions:
-    #   - {key: environment, operator: In, values: [dev]}
+    matchExpressions:
+      - {key: environment, operator: In, values: [ip-172-26-7-117]}
