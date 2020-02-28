@@ -13,9 +13,11 @@ metadata:
 spec:
   capacity:
     storage: 10Gi
+  # volumeMode field requires BlockVolume Alpha feature gate to be enabled.
   volumeMode: Filesystem
-  accessModes: ["ReadWriteOnce"]
-  persistentVolumeReclaimPolicy: Delete
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
     path: /data
@@ -29,10 +31,10 @@ spec:
           - ip-172-26-7-117
           # - devops-103
 ---
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: opslpv
+  name: opslpvc
 spec:
   accessModes:
     - ReadWriteOnce
@@ -45,4 +47,4 @@ spec:
   #   matchLabels:
   #     release: "stable"
   #   matchExpressions:
-  #     - {key: environment, operator: In, values: [ip-172-26-7-117]}
+  #     - {key: environment, operator: In, values: [dev]}
