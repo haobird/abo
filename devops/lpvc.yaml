@@ -39,7 +39,7 @@ metadata:
   # annotations:
   #   volume.beta.kubernetes.io/storage-class: "local-storage"
 spec:
-  storageClassName: "local-storage"
+  storageClassName: local-storage
   accessModes:
   - ReadWriteMany
   resources:
