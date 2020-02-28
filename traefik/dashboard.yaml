@@ -10,6 +10,22 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
+  name: wrringressroute
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`wrr.qikqiak.com`)
+    kind: Rule
+    services:
+    - name: app-wrr
+      kind: TraefikService
+      
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
   name: traefik-dashboard
 spec:
   routes:
