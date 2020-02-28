@@ -23,7 +23,7 @@ spec:
       volumes:
       - name: www
         persistentVolumeClaim:
-        claimName: example-local-claim
+          claimName: example-local-claim
       nodeSelector:
         "kubernetes.io/hostname": ip-172-26-7-117
 
