@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: host-pvc
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: host-pvc
@@ -22,10 +21,10 @@ spec:
         volumeMounts:
         - name: www
           mountPath: /usr/share/nginx/html
-      volumes:
-      - name: www
-        persistentVolumeClaim:
-          claimName: opspvc
+      # volumes:
+      # - name: www
+      #   persistentVolumeClaim:
+      #     claimName: opspvc
 
 ---
 
