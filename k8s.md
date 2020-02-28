@@ -28,12 +28,19 @@ kubectl get pods  -n kube-ops # 查看当前启动的pods
 kubectl get pods    # 查看所有Pod列表
 kubectl get rc,service  # 查看rc和service列表
 
+kubectl get nodes --show-labels     # 查看所有节点及labels
+
 kubectl describe nodes <node-name>      # 显示Node的详细信息
 kubectl describe pods/<pod-name>        # 显示Pod的详细信息
 kubectl describe pods <rc-name>         # 显示由RC管理的Pod的信息
 
 kubectl describe pvc nginx-pvc
 
+kubectl label nodes <node-name> <label-key>-    # 删除节点的labels
+
+kubectl label nodes <node-name> <label-key>=<label-value>   # 给节点添加labels
+
+kubectl label nodes <node-name> <label-key>=<label-value> --overwrite # 修改节点的labels, 需要加上--overwrite参数
 ```
 
 ### 创建命名空间
