@@ -1,4 +1,13 @@
 apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-https
+spec:
+  redirectScheme:
+    scheme: https
+
+---
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: traefik-dashboard
@@ -39,6 +48,8 @@ spec:
     services:
     - name: whoami
       port: 80
+    middlewares: 
+    - name: redirect-https
 
 ---
 apiVersion: traefik.containo.us/v1alpha1

@@ -116,6 +116,10 @@ kubeadm join 172.26.7.117:6443 --token 1ufl2h.y3w2674qjv87zg29 \
 
 ```
 kubectl get nodes
+
+kubectl get pods -n kube-system  # 查看某个命名空间的节点
+
+kubectl get ingressroute # 获取当前路由组
 ```
 
 ### 安装插件
@@ -124,10 +128,7 @@ kubectl get nodes
 
 #### 访问
 ```
-
-18.182.117.147:31955
-18.182.117.147
-54.249.84.246
+IP:PORT
 ```
 
 
