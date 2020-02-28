@@ -18,12 +18,14 @@ spec:
         - containerPort: 80
           name: web
         volumeMounts:
-        - name: www
-          mountPath: /usr/share/nginx/html
+        - mountPath: "/usr/share/nginx/html"
+          name: www
       volumes:
       - name: www
         persistentVolumeClaim:
-          claimName: example-local-claim
+        claimName: example-local-claim
+      nodeSelector:
+        "kubernetes.io/hostname": ip-172-26-7-117
 
 ---
 
