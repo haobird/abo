@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: local-pvc
 spec:
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
   selector:
     matchLabels:
       app: local-pvc
@@ -24,8 +26,6 @@ spec:
       - name: www
         persistentVolumeClaim:
           claimName: example-local-claim
-      # nodeSelector:
-      #   kubernetes.io/hostname: ip-172-26-7-117
 
 ---
 
