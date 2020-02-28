@@ -3,30 +3,36 @@
 ### 常用命令
 
 ```
-# 启动配置
-kubectl apply -f devops/pvc.yaml
 
-# 创建应用
-kubectl create -f devops/pvc.yaml
 
-# 删除应用
-kubectl delete -f devops/pvc.yaml
 
 ```
 
 
 ### 常用命令
 ```
+kubectl apply -f devops/pvc.yaml    # 启动配置
+kubectl create -f devops/pvc.yaml   # 创建应用
+kubectl delete -f devops/pvc.yaml   # 删除应用
+
+kubectl delete deployment host-pvc # 删除指定的deployment
+
 kubectl get ingressroute # 获取当前路由组
 
 kubectl get pv   # 查看PV 的状态
 kubectl get pvc -n kube-ops     # 查看PVS 的状态 ，如果有定义命名空间，一定要指定出来才能看到
 
-kubectl delete deployment host-pvc # 删除指定的deployment
-
 kubectl get svc  # 查看当前启动的service
 kubectl get pods  -n kube-ops # 查看当前启动的pods
 
+kubectl get pods    # 查看所有Pod列表
+kubectl get rc,service  # 查看rc和service列表
+
+kubectl describe nodes <node-name>      # 显示Node的详细信息
+kubectl describe pods/<pod-name>        # 显示Pod的详细信息
+kubectl describe pods <rc-name>         # 显示由RC管理的Pod的信息
+
+kubectl describe pvc nginx-pvc
 
 ```
 

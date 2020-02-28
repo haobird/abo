@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: host-pvc
+  name: local-pvc
 spec:
   selector:
     app: local-pvc
