@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: host-pvc
+  name: local-pvc
 spec:
   selector:
     matchLabels:
-      app: host-pvc
+      app: local-pvc
   template:
     metadata:
       labels:
-        app: host-pvc
+        app: local-pvc
     spec:
       containers:
       - name: nginx
@@ -23,7 +23,7 @@ spec:
       volumes:
       - name: www
         persistentVolumeClaim:
-          claimName: opspvc
+          claimName: example-local-claim
 
 ---
 
@@ -33,10 +33,10 @@ metadata:
   name: host-pvc
 spec:
   selector:
-    app: host-pvc
+    app: local-pvc
   type: NodePort
   ports:
   - port: 80
     targetPort: web
-    nodePort: 30195
+    nodePort: 30196
   
