@@ -39,9 +39,15 @@ metadata:
   # annotations:
   #   volume.beta.kubernetes.io/storage-class: "local-storage"
 spec:
-  storageClassName: local-storage
   accessModes:
   - ReadWriteMany
+  volumeMode: Filesystem
   resources:
     requests:
-      storage: 10Gi
+      storage: 1Gi
+  storageClassName: slow
+  # selector:
+  #   matchLabels:
+  #     release: "stable"
+  #   matchExpressions:
+  #     - {key: environment, operator: In, values: [dev]}
