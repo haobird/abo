@@ -36,9 +36,10 @@ apiVersion: v1
 metadata:
   name: opslpvc
   namespace: kube-ops
-  annotations:
-    volume.beta.kubernetes.io/storage-class: "local-storage"
+  # annotations:
+  #   volume.beta.kubernetes.io/storage-class: "local-storage"
 spec:
+  storageClassName: "local-storage"
   accessModes:
   - ReadWriteMany
   resources:
