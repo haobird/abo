@@ -21,13 +21,13 @@ spec:
         ports:
         - containerPort: 80
           name: web
-      #   volumeMounts:
-      #   - mountPath: "/usr/share/nginx/html"
-      #     name: www
-      # volumes:
-      # - name: www
-      #   persistentVolumeClaim:
-      #     claimName: example-local-claim
+        volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: www
+      volumes:
+      - name: www
+        persistentVolumeClaim:
+          claimName: example-local-claim
 
 ---
 
