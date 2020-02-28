@@ -10,7 +10,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /data
+    path: /data/test
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -19,7 +19,6 @@ spec:
           operator: In
           values:
           - ip-172-26-7-117
-          - ip-172-26-9-54
 
 ---
 kind: PersistentVolumeClaim
