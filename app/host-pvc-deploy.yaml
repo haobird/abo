@@ -13,8 +13,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.7.9
-        imagePullPolicy: IfNotPresent
+        image: nginx
+        # imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           name: web
@@ -32,12 +32,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: host-pvc
-  labels:
-    app: host-pvc
 spec:
+  selector:
+    app: host-pvc
   type: NodePort
   ports:
   - port: 80
     targetPort: web
-  selector:
-    app: host-pvc
+  
