@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: host-pvc
-  namespace: kube-ops
 spec:
   selector:
     matchLabels:
@@ -17,7 +16,7 @@ spec:
       containers:
       - name: nginx
         image: nginx
-        # imagePullPolicy: IfNotPresent
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           name: web
