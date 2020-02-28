@@ -11,22 +11,19 @@ spec:
       labels:
         app: host-pvc
     spec:
-      # nodeSelector:
-      #   kubernetes.io/hostname: ip-172-26-7-117
       containers:
       - name: nginx
         image: nginx
-        # imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           name: web
-        volumeMounts:
-        - name: www
-          mountPath: /usr/share/nginx/html
-      volumes:
-      - name: www
-        persistentVolumeClaim:
-          claimName: example-local-claim
+      #   volumeMounts:
+      #   - name: www
+      #     mountPath: /usr/share/nginx/html
+      # volumes:
+      # - name: www
+      #   persistentVolumeClaim:
+      #     claimName: example-local-claim
 
 ---
 
