@@ -65,7 +65,7 @@ spec:
         # 使用 dns 验证方式
         - --certificatesResolvers.default.acme.dnsChallenge.provider=dnspod
         # 邮箱配置
-        - --certificatesResolvers.default.acme.email="xyqbgn@126.com"
+        - --certificatesResolvers.default.acme.email=xyqbgn@126.com
         # # 保存 ACME 证书的位置
         # - --certificatesResolvers.default.acme.storage=/etc/acme/acme.json
         # 下面是用于测试的ca服务，如果https证书生成成功了，则移除下面参数
