@@ -62,7 +62,7 @@ spec:
         # 保存 ACME 证书的位置
         # - --certificatesResolvers.default.acme.storage=acme.json
         # 使用 dns 验证方式
-        - --certificatesResolvers.default.acme.dnsChallenge.provider=dnspod
+        - --certificatesResolvers.default.acme.dnsChallenge.provider=gandiv5
         # 邮箱配置
         - --certificatesResolvers.default.acme.email=xyqbgn@gmail.com
         # # 保存 ACME 证书的位置
@@ -71,7 +71,7 @@ spec:
         - --certificatesResolvers.default.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
         envFrom:
         - secretRef:
-            name: traefik-dnspod-secret
+            name: traefik-gandiv5-secret
             # GANDIV5_API_KEY
             # ALICLOUD_SECRET_KEY
             # ALICLOUD_REGION_ID
