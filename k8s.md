@@ -62,7 +62,7 @@ kubectl exec -it <pod-name> -c <container-name> bash
 # 例子
 kubectl exec -it traefik-7c7969f5c9-nc6tg /bin/sh -n kube-system
 # 查看具体的pods日志
-kubectl logs -f traefik-6b99d57df-dv9j9 -n kube-system      
+kubectl logs -f traefik-6b99d57df-dv9j9 -n kube-ops     
 ```
 
 ### 创建命名空间
