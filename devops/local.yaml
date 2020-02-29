@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-pvc
+  namespace: kube-ops
+spec:
+  selector:
+    matchLabels:
+      app: local-pvc
+  template:
+    metadata:
+      labels:
+        app: local-pvc
+    spec:
+      tolerations:
+      - operator: "Exists"
+      nodeSelector:
+        kubernetes.io/hostname: ip-172-26-7-117
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: www
+      volumes:
+      - name: www
+        persistentVolumeClaim:
+          claimName: opspvc
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: local-pvc
+spec:
+  selector:
+    app: local-pvc
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: web
+    nodePort: 30196
+  
