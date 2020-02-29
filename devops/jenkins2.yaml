@@ -1,5 +1,5 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins2
@@ -10,6 +10,10 @@ spec:
       labels:
         app: jenkins2
     spec:
+      tolerations:
+      - operator: "Exists"
+      nodeSelector:
+        kubernetes.io/hostname: ip-172-26-7-117
       terminationGracePeriodSeconds: 10
       serviceAccountName: jenkins2
       containers:
@@ -75,3 +79,19 @@ spec:
   - name: agent
     port: 50000
     targetPort: agent
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jenkins2
+  namespace: kube-ops
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`jenkins2.mzone.me`)
+    kind: Rule
+    services:
+    - name: jenkins2
+      port: 8080
