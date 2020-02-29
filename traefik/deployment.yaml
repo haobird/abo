@@ -69,7 +69,7 @@ spec:
         # # 保存 ACME 证书的位置
         - --certificatesResolvers.default.acme.storage=/etc/acme/acme.json
         # 下面是用于测试的ca服务，如果https证书生成成功了，则移除下面参数
-        - --certificatesresolvers.default.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+        - --certificatesResolvers.default.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
         envFrom:
         - secretRef:
             name: traefik-dnspod-secret
