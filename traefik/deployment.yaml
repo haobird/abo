@@ -21,10 +21,10 @@ spec:
       - operator: "Exists"
       nodeSelector:
         kubernetes.io/hostname: ip-172-26-7-117
-      volumes:
-      - name: acme
-        hostPath:
-          path: /data/k8s/traefik/acme
+      # volumes:
+      # - name: acme
+      #   hostPath:
+      #     path: /data/k8s/traefik/acme
       containers:
       - image: traefik:2.1.1
         name: traefik
