@@ -6,6 +6,9 @@ metadata:
   labels:
     name: postgresql
 spec:
+  selector:
+    matchLabels:
+      app: postgresql
   template:
     metadata:
       name: postgresql

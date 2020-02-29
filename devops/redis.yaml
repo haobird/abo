@@ -6,6 +6,9 @@ metadata:
   labels:
     name: redis
 spec:
+  selector:
+    matchLabels:
+      app: redis
   template:
     metadata:
       name: redis
