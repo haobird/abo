@@ -12,6 +12,10 @@ spec:
       labels:
         name: gitlab
     spec:
+      tolerations:
+      - operator: "Exists"
+      nodeSelector:
+        kubernetes.io/hostname: ip-172-26-7-117
       containers:
       - name: gitlab
         image: sameersbn/gitlab:11.8.1
@@ -30,9 +34,9 @@ spec:
         - name: GITLAB_ROOT_PASSWORD
           value: admin321
         - name: GITLAB_ROOT_EMAIL
-          value: 517554016@qq.com
+          value: xyqbgn@126.com
         - name: GITLAB_HOST
-          value: git.qikqiak.com
+          value: git.mzone.me
         - name: GITLAB_PORT
           value: "80"
         - name: GITLAB_SSH_PORT
@@ -83,7 +87,8 @@ spec:
           timeoutSeconds: 1
       volumes:
       - name: data
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: example-local-claim
 
 ---
 apiVersion: v1
@@ -104,19 +109,19 @@ spec:
   selector:
     name: gitlab
 
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: gitlab
-  namespace: kube-ops
-  annotations:
-    kubernetes.io/ingress.class: traefik
-spec:
-  rules:
-  - host: git.qikqiak.com
-    http:
-      paths:
-      - backend:
-          serviceName: gitlab
-          servicePort: http
+# ---
+# apiVersion: extensions/v1beta1
+# kind: Ingress
+# metadata:
+#   name: gitlab
+#   namespace: kube-ops
+#   annotations:
+#     kubernetes.io/ingress.class: traefik
+# spec:
+#   rules:
+#   - host: git.qikqiak.com
+#     http:
+#       paths:
+#       - backend:
+#           serviceName: gitlab
+#           servicePort: http
