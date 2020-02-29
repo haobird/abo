@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: postgresql
+      name: postgresql
   template:
     metadata:
       name: postgresql
@@ -73,8 +73,6 @@ metadata:
   labels:
     name: postgresql
 spec:
-  selector:
-    app: postgres
   ports:
     - name: postgres
       port: 5432

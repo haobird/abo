@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitlab
@@ -6,6 +6,9 @@ metadata:
   labels:
     name: gitlab
 spec:
+  selector:
+    matchLabels:
+      name: gitlab
   template:
     metadata:
       name: gitlab

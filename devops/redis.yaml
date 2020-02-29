@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: redis
+      name: redis
   template:
     metadata:
       name: redis
@@ -58,8 +58,6 @@ metadata:
   labels:
     name: redis
 spec:
-  selector:
-    app: redis
   ports:
     - name: redis
       port: 6379
