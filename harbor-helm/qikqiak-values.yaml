@@ -1,0 +1,34 @@
+expose:
+  type: ingress
+  tls:
+    enabled: true
+  ingress:
+    hosts:
+      core: registry.mzone.me
+      notary: notary.mzone.me
+    annotations:
+      kubernetes.io/ingress.class: "traefik"
+      ingress.kubernetes.io/ssl-redirect: "true"
+      ingress.kubernetes.io/proxy-body-size: "0"
+
+externalURL: https://registry.mzone.me
+
+persistence:
+  enabled: true
+  resourcePolicy: "keep"
+  persistentVolumeClaim:
+    registry:
+      existingClaim: "opspvc"
+      subPath: "harbor"
+    chartmuseum:
+      existingClaim: "opspvc"
+      subPath: "harbor"
+    jobservice:
+      existingClaim: "opspvc"
+      subPath: "harbor"
+    database:
+      existingClaim: "opspvc"
+      subPath: "harbor"
+    redis:
+      existingClaim: "opspvc"
+      subPath: "harbor"
