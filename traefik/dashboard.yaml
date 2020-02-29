@@ -115,7 +115,7 @@ spec:
     - name: whoami
       port: 80
   tls:
-    certResolver: sample
+    certResolver: default
     domains:
     - main: "*.mzone.me"
     
@@ -135,7 +135,7 @@ spec:
     - name: api@internal
       kind: TraefikService
   tls:
-    certResolver: sample
+    certResolver: default
     domains:
     - main: "*.mzone.me"
   # tls:
