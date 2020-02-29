@@ -144,7 +144,7 @@ metadata:
   namespace: kube-ops
 spec:
   entryPoints:
-    - https
+  - websecure
   routes:
   - match: Host(`git.mzone.me`)
     kind: Rule
