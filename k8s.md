@@ -28,6 +28,8 @@ kubectl get pods  -n kube-ops # 查看当前启动的pods
 kubectl get pods    # 查看所有Pod列表
 kubectl get rc,service  # 查看rc和service列表
 
+kubectl get secret -n kube-system
+
 kubectl get nodes --show-labels     # 查看所有节点及labels
 
 kubectl describe nodes <node-name>      # 显示Node的详细信息
