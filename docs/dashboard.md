@@ -14,6 +14,8 @@
 
 ## 2.0.0 版本安装流程
 
+- 参考文章：Kubernetes V1.16.2部署Dashboard V2.0(beta5) https://www.cnblogs.com/bluersw/p/11747161.html
+
 #### 下载
 ```
 wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta5/aio/deploy/recommended.yaml
