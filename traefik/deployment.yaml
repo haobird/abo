@@ -61,7 +61,6 @@ spec:
         # - --certificatesResolvers.default.acme.email="ych_1024@163.com"
         # 保存 ACME 证书的位置
         # - --certificatesResolvers.default.acme.storage=acme.json
-        
         # 使用 dns 验证方式
         - --certificatesResolvers.default.acme.dnsChallenge.provider=dnspod
         # 邮箱配置
