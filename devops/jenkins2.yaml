@@ -5,10 +5,13 @@ metadata:
   name: jenkins2
   namespace: kube-ops
 spec:
+  selector:
+    matchLabels:
+      name: jenkins2
   template:
     metadata:
       labels:
-        app: jenkins2
+        name: jenkins2
     spec:
       tolerations:
       - operator: "Exists"
@@ -66,10 +69,10 @@ metadata:
   name: jenkins2
   namespace: kube-ops
   labels:
-    app: jenkins2
+    name: jenkins2
 spec:
   selector:
-    app: jenkins2
+    name: jenkins2
   type: NodePort
   ports:
   - name: web
