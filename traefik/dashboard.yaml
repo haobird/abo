@@ -52,6 +52,22 @@ spec:
     - name: api@internal
       kind: TraefikService
 
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-tls
+spec:
+  entryPoints:
+  - websecure  # 注意这里是websecure这个entryPoint，监控443端口
+  routes:
+  - match: Host(`traefik.mzone.com`)
+    kind: Rule
+    services:
+    - name: traefik
+      port: 8080
+  tls:
+    certResolver: default  # 使用我们配置的 default 这个解析器
 
 ---
 apiVersion: traefik.containo.us/v1alpha1

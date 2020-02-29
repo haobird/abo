@@ -29,7 +29,6 @@ kubectl get pods    # 查看所有Pod列表
 kubectl get rc,service  # 查看rc和service列表
 
 kubectl get secret -n kube-system
-
 kubectl get nodes --show-labels     # 查看所有节点及labels
 
 kubectl describe nodes <node-name>      # 显示Node的详细信息
@@ -39,10 +38,13 @@ kubectl describe pods <rc-name>         # 显示由RC管理的Pod的信息
 kubectl describe pvc nginx-pvc
 
 kubectl label nodes <node-name> <label-key>-    # 删除节点的labels
-
 kubectl label nodes <node-name> <label-key>=<label-value>   # 给节点添加labels
-
 kubectl label nodes <node-name> <label-key>=<label-value> --overwrite # 修改节点的labels, 需要加上--overwrite参数
+
+get secret -n kube-system       # 查看命名空间下的 secret
+kubectl delete secret traefik-dnspod-secret -n kube-system  # 删除命名空间下某名字的secret
+
+kubectl create secret generic traefik-alidns-secret --from-literal=ALICLOUD_ACCESS_KEY=<aliyun ak> --from-literal=ALICLOUD_SECRET_KEY=<aliyun sk>--from-literal=ALICLOUD_REGION_ID=cn-beijing -n kube-system    # 创建某命名空间下的 secret
 ```
 
 ### 创建命名空间

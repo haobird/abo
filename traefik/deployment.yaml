@@ -55,18 +55,24 @@ spec:
         # - --providers.file.filename=/config/traefik-tls.toml
         - --log.level=INFO
         - --accesslog
-        # 使用 dns 验证方式
-        - --certificatesResolvers.sample.acme.dnsChallenge.provider=gandiv5
+        # 使用 tls 验证这种方式
+        # - --certificatesresolvers.default.acme.tlsChallenge=true
         # 邮箱配置
-        # - --certificatesResolvers.ali.acme.email=ych_1024@163.com
-        - --certificatesResolvers.sample.acme.email="xyqbgn@126.com"
+        # - --certificatesResolvers.default.acme.email="ych_1024@163.com"
         # 保存 ACME 证书的位置
-        - --certificatesResolvers.sample.acme.storage=/etc/acme/acme.json
+        # - --certificatesResolvers.default.acme.storage="acme.json"
+        
+        # 使用 dns 验证方式
+        - --certificatesResolvers.default.acme.dnsChallenge.provider=dnspod
+        # 邮箱配置
+        - --certificatesResolvers.default.acme.email="xyqbgn@126.com"
+        # # 保存 ACME 证书的位置
+        - --certificatesResolvers.default.acme.storage=/etc/acme/acme.json
         # 下面是用于测试的ca服务，如果https证书生成成功了，则移除下面参数
-        - --certificatesresolvers.sample.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+        - --certificatesresolvers.default.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
         envFrom:
         - secretRef:
-            name: traefik-gandiv5-secret
+            name: traefik-dnspod-secret
             # GANDIV5_API_KEY
             # ALICLOUD_SECRET_KEY
             # ALICLOUD_REGION_ID

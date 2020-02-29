@@ -80,6 +80,14 @@ openssl x509 -req -in dashboard.csr -signkey dashboard.key -out dashboard.crt -d
 kubectl create secret generic kubernetes-dashboard-certs --from-file=dashboard.key --from-file=dashboard.crt -n kubernetes-dashboard    创建kubernetes-dashboard-certs对象
 ```
 
+##### 创建证书出现Can't load ./.rnd into RNG错误的解决
+
+- 参考链接：https://github.com/openssl/openssl/issues/7754
+
+```
+I had the same issue as you on Ubuntu 18.04.x. Removing (or commenting out) RANDFILE = $ENV::HOME/.rnd from /etc/ssl/openssl.cnf worked for me.
+```
+
 #### 安装Dashboard
 
 ```
