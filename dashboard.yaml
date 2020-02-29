@@ -1,30 +1,16 @@
-# http 转 https 中间件
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: redirect-https
-spec:
-  redirectScheme:
-    scheme: https
-
----
-# http 访问地址
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: traefik-dashboard
 spec:
   routes:
-  - match: Host(`traefik.mzone.me`)
+  - match: Host(`traefik.domain.com`)
     kind: Rule
     services:
     - name: api@internal
       kind: TraefikService
-    middlewares:  # 此中间件会强制跳转 https
-    - name: redirect-https
 
 ---
-# https 访问地址
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -33,16 +19,17 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`traefik.mzone.me`)
+  - match: Host(`traefik.qikqiak.com`)
     kind: Rule
     services:
     - name: api@internal
       kind: TraefikService
   tls:
-    certResolver: default
+    certResolver: ali
     domains:
-    - main: "*.mzone.me"
-
+    - main: "*.qikqiak.com"
+  # tls:
+  #   secretName: who-tls
 # ---
 # apiVersion: traefik.containo.us/v1alpha1
 # kind: Middleware

@@ -1,0 +1,67 @@
+# 在线VSCODE
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: code-server
+  namespace: code-server
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`code.mzone.me`)
+    services:
+    - kind: Service
+      name: code-server
+      port: 80
+
+---
+# 灰度发布路由 （需要先定义灰度发布的规则）
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: wrringressroute
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`wrr.mzone.me`)
+    kind: Rule
+    services:
+    - name: app-wrr
+      kind: TraefikService
+      
+---
+# http 访问
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simpleingressroute
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`who.mzone.me`) && PathPrefix(`/notls`)
+    kind: Rule
+    services:
+    - name: whoami
+      port: 80
+
+---
+# https 访问
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroutetls
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`who.mzone.me`) && PathPrefix(`/tls`)
+    kind: Rule
+    services:
+    - name: whoami
+      port: 80
+  tls:
+    certResolver: default

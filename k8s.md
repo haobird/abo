@@ -45,6 +45,24 @@ get secret -n kube-system       # 查看命名空间下的 secret
 kubectl delete secret traefik-dnspod-secret -n kube-system  # 删除命名空间下某名字的secret
 
 kubectl create secret generic traefik-alidns-secret --from-literal=ALICLOUD_ACCESS_KEY=<aliyun ak> --from-literal=ALICLOUD_SECRET_KEY=<aliyun sk>--from-literal=ALICLOUD_REGION_ID=cn-beijing -n kube-system    # 创建某命名空间下的 secret
+
+```
+
+#### 执行容器的命令
+
+```
+# 执行Pod的data命令，默认是用Pod中的第一个容器执行
+kubectl exec <pod-name> data
+
+# 指定Pod中某个容器执行data命令
+kubectl exec <pod-name> -c <container-name> data
+
+# 通过bash获得Pod中某个容器的TTY，相当于登录容器
+kubectl exec -it <pod-name> -c <container-name> bash
+# 例子
+kubectl exec -it traefik-7c7969f5c9-nc6tg /bin/sh -n kube-system
+# 查看具体的pods日志
+kubectl logs -f traefik-6b99d57df-dv9j9 -n kube-system      
 ```
 
 ### 创建命名空间
