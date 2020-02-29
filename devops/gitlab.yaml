@@ -129,3 +129,20 @@ spec:
 #       - backend:
 #           serviceName: gitlab
 #           servicePort: http
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gitlab
+  namespace: kube-ops
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`git.mzone.me`)
+    kind: Rule
+    services:
+    - name: gitlab
+      port: 80
+  tls:
+    certResolver: default
