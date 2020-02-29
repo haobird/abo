@@ -76,9 +76,9 @@ spec:
             # GANDIV5_API_KEY
             # ALICLOUD_SECRET_KEY
             # ALICLOUD_REGION_ID
-        volumeMounts:
-        - name: acme
-          mountPath: /etc/acme
+        # volumeMounts:
+        # - name: acme
+        #   mountPath: /etc/acme
         # - name: config
         #   mountPath: /config
         # - name: certs
