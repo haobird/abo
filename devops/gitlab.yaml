@@ -73,6 +73,7 @@ spec:
         volumeMounts:
         - mountPath: /home/git/data
           name: data
+          subPath: gitlab
         livenessProbe:
           httpGet:
             path: /
@@ -88,7 +89,7 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: example-local-claim
+          claimName: opspvc
 
 ---
 apiVersion: v1

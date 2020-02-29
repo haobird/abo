@@ -26,6 +26,7 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/redis
           name: data
+          subPath: redis
         livenessProbe:
           exec:
             command:
@@ -43,7 +44,7 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: example-local-claim
+          claimName: opspvc
 
 ---
 apiVersion: v1
