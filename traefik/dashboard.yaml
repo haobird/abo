@@ -104,24 +104,24 @@ spec:
     - main: "*.mzone.me"
     
 
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: traefik-dashboard-tls
-spec:
-  entryPoints:
-    - websecure
-  routes:
-  - match: Host(`traefik.mzone.me`)
-    kind: Rule
-    services:
-    - name: api@internal
-      kind: TraefikService
-  tls:
-    certResolver: default
-    domains:
-    - main: "*.mzone.me"
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: traefik-dashboard-tls
+# spec:
+#   entryPoints:
+#     - websecure
+#   routes:
+#   - match: Host(`traefik.mzone.me`)
+#     kind: Rule
+#     services:
+#     - name: api@internal
+#       kind: TraefikService
+#   tls:
+#     certResolver: default
+#     domains:
+#     - main: "*.mzone.me"
   # tls:
   #   secretName: who-tls
 # ---
