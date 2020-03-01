@@ -4,8 +4,10 @@
 
 ```
 
+helm install -f myvalues.yaml myredis ./redis
 
-
+helm install -f qikqiak-values.yaml --namespace kube-ops harbor ./ 
+helm install -f qikqiak-values.yaml --namespace kube-ops harbor harbor/harbor
 ```
 
 
