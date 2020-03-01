@@ -27,7 +27,7 @@ spec:
         - name: PG_PASSWORD
           value: passw0rd
         - name: DB_NAME
-          value: gitlab_production,registry
+          value: gitlab_production,registry,clair,notary_server,notary_signer
         - name: DB_EXTENSION
           value: pg_trgm
         ports:
