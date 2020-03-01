@@ -1,7 +1,7 @@
 expose:
   type: ingress
   tls:
-    enabled: true
+    enabled: false
     # secretName: "tls"
   ingress:
     hosts:
