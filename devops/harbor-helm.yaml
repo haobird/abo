@@ -32,7 +32,7 @@ persistence:
     database:
       existingClaim: "opspvc"
       # storageClass: "local-storage"
-      subPath: "database"
+      subPath: "postgres"
     redis:
       existingClaim: "opspvc"
       # storageClass: "local-storage"
