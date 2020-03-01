@@ -87,7 +87,7 @@ notary:
     kubernetes.io/hostname: ip-172-26-7-117
 
 database:
-  type: internal
+  type: external
   internal:
     tolerations:
       - operator: "Exists"
