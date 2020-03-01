@@ -1,5 +1,5 @@
 expose:
-  type: ingress
+  type: clusterIP
   tls:
     enabled: true
   ingress:
@@ -14,24 +14,24 @@ expose:
 externalURL: https://registry.mzone.me
 
 persistence:
-  enabled: false
+  enabled: true
   resourcePolicy: "keep"
   persistentVolumeClaim:
     registry:
       existingClaim: "opspvc"
-      subPath: "harbor"
+      subPath: "registry"
     chartmuseum:
       existingClaim: "opspvc"
-      subPath: "harbor"
+      subPath: "chartmuseum"
     jobservice:
       existingClaim: "opspvc"
-      subPath: "harbor"
+      subPath: "jobservice"
     database:
       existingClaim: "opspvc"
-      subPath: "harbor"
+      subPath: "database"
     redis:
       existingClaim: "opspvc"
-      subPath: "harbor"
+      subPath: "redis"
 
 nginx:
   tolerations:
