@@ -14,7 +14,7 @@ expose:
 externalURL: https://registry.mzone.me
 
 persistence:
-  enabled: true
+  enabled: false
   resourcePolicy: "keep"
   persistentVolumeClaim:
     registry:

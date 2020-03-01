@@ -9,7 +9,7 @@ helm install -f myvalues.yaml myredis ./redis
 helm install -f qikqiak-values.yaml --namespace kube-ops harbor ./ 
 helm install -f devops/harbor-helm.yaml --namespace kube-ops harbor harbor/harbor 
 
-helm install -f qikqiak-values.yaml --namespace kube-ops test.yaml harbor harbor/harbor
+helm install -f qikqiak-values.yaml --namespace kube-ops harbor harbor/harbor
 
 helm uninstall harbor --namespace kube-ops
 
