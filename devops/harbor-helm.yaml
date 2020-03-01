@@ -1,8 +1,8 @@
 expose:
   type: ingress
   tls:
-    enabled: false
-    # secretName: "tls"
+    enabled: true
+    secretName: "ca-secret"
   ingress:
     hosts:
       core: registry.mzone.me

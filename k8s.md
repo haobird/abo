@@ -138,3 +138,17 @@ kubectl get pvc
 ```
 kubectl logs kubernetes-dashboard-865b64d96f-g5f9t --namespace=kube-system
 ```
+
+```
+kubectl create secret generic certs --from-file=/root/.acme.sh/mzone.me/mzone.me.key --from-file=/root/.acme.sh/mzone.me/mzone.me.cer -n kube-ops
+
+kubectl create secret generic ca-secret --from-file=tls.crt=server.crt --from-file=tls.key=server.key --from-file=ca.crt=ca.crt
+```
+
+### 创建证书sercet
+
+### 转换证书
+```
+openssl x509 -inform PEM -in ca.cer -out ca.crt
+openssl x509 -inform PEM -in mzone.me.cer -out tls.crt
+```
