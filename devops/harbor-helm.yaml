@@ -15,7 +15,7 @@ externalURL: https://registry.mzone.me
 
 persistence:
   enabled: true
-  resourcePolicy: "keep"
+  resourcePolicy: ""
   persistentVolumeClaim:
     registry:
       existingClaim: "opspvc"
@@ -87,14 +87,18 @@ notary:
     kubernetes.io/hostname: ip-172-26-7-117
 
 database:
-  tolerations:
-    - operator: "Exists"
-  nodeSelector:
-    kubernetes.io/hostname: ip-172-26-7-117
+  type: internal
+  internal:
+    tolerations:
+      - operator: "Exists"
+    nodeSelector:
+      kubernetes.io/hostname: ip-172-26-7-117
 
 redis:
-  tolerations:
-    - operator: "Exists"
-  nodeSelector:
-    kubernetes.io/hostname: ip-172-26-7-117
+  type: internal
+  internal:
+    tolerations:
+      - operator: "Exists"
+    nodeSelector:
+      kubernetes.io/hostname: ip-172-26-7-117
 
