@@ -68,7 +68,7 @@ kubectl exec <pod-name> -c <container-name> data
 # 通过bash获得Pod中某个容器的TTY，相当于登录容器
 kubectl exec -it <pod-name> -c <container-name> bash
 # 例子
-kubectl exec -it traefik-7c7969f5c9-nc6tg /bin/sh -n kube-system
+kubectl exec -it traefik-7c7969f5c9-nc6tg /bin/sh -n kube-ops
 # 查看具体的pods日志
 kubectl logs -f -n kube-ops traefik-6b99d57df-dv9j9      
 ```
