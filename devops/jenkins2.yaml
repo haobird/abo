@@ -64,7 +64,7 @@ spec:
       volumes:
       - name: docker-bin 
         hostPath: 
-            path: $(which docker)
+            path: /usr/bin/docker
       - name: docker-sock 
         hostPath: 
             path: /var/run/docker.sock
