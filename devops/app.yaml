@@ -24,12 +24,12 @@ metadata:
   namespace: kube-ops
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
   - match: Host(`registry.mzone.me`)
     kind: Rule
     services:
     - name: harbor
       port: 80
-  tls:
-    certResolver: default
+  # tls:
+  #   certResolver: default
