@@ -57,23 +57,23 @@ persistence:
 #   nodeSelector:
 #     kubernetes.io/hostname: ip-172-26-7-117
 
-# jobservice:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+jobservice:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# registry:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+registry:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# chartmuseum:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+chartmuseum:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
 # clair:
 #   tolerations:
