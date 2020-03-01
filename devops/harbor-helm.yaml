@@ -98,6 +98,10 @@ database:
     port: "5432"
     username: "gitlab"
     password: "passw0rd"
+    coreDatabase: "registry"
+    clairDatabase: "clair"
+    notaryServerDatabase: "notary_server"
+    notarySignerDatabase: "notary_signer"
 
 redis:
   type: external
