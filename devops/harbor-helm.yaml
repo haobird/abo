@@ -87,18 +87,30 @@ notary:
     kubernetes.io/hostname: ip-172-26-7-117
 
 database:
-  type: internal
+  type: external
   internal:
     tolerations:
       - operator: "Exists"
     nodeSelector:
       kubernetes.io/hostname: ip-172-26-7-117
+  external:
+    host: "postgresql"
+    port: "5432"
+    username: "gitlab"
+    password: "passw0rd"
+    coreDatabase: "registry"
+    clairDatabase: "clair"
+    notaryServerDatabase: "notary_server"
+    notarySignerDatabase: "notary_signer"
 
 redis:
-  type: internal
+  type: external
   internal:
     tolerations:
       - operator: "Exists"
     nodeSelector:
       kubernetes.io/hostname: ip-172-26-7-117
+  external:
+    host: "redis"
+    port: "6379"
 
