@@ -1,8 +1,8 @@
 expose:
-  type: clusterIP
+  type: ingress
   tls:
     enabled: true
-    secretName: "tls"
+    # secretName: "tls"
   ingress:
     hosts:
       core: registry.mzone.me
