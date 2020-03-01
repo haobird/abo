@@ -12,7 +12,7 @@ metadata:
   name: opspv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 30Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
