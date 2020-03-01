@@ -30,6 +30,6 @@ spec:
     kind: Rule
     services:
     - name: harbor
-      port: 443
+      port: 80
   tls:
     certResolver: default
