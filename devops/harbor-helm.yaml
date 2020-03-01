@@ -96,7 +96,7 @@ database:
   external:
     host: "postgresql"
     port: "5432"
-    username: "gitlab"
+    username: "postgres"
     password: "passw0rd"
     coreDatabase: "registry"
     clairDatabase: "clair"

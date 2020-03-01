@@ -24,12 +24,10 @@ spec:
         image: sameersbn/postgresql:10
         imagePullPolicy: IfNotPresent
         env:
-        - name: DB_USER
-          value: gitlab
-        - name: DB_PASS
+        - name: PG_PASSWORD
           value: passw0rd
         - name: DB_NAME
-          value: gitlab_production
+          value: gitlab_production,registry
         - name: DB_EXTENSION
           value: pg_trgm
         ports:
