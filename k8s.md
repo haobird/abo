@@ -142,7 +142,7 @@ kubectl logs kubernetes-dashboard-865b64d96f-g5f9t --namespace=kube-system
 ```
 kubectl create secret generic certs --from-file=/root/.acme.sh/mzone.me/mzone.me.key --from-file=/root/.acme.sh/mzone.me/mzone.me.cer -n kube-ops
 
-kubectl create secret generic ca-secret --from-file=tls.crt=server.crt --from-file=tls.key=server.key --from-file=ca.crt=ca.crt
+kubectl create secret generic ca-secret --from-file=tls.crt=tls.crt --from-file=tls.key=mzone.me.key --from-file=ca.crt=ca.crt -n kube-ops
 ```
 
 ### 创建证书sercet

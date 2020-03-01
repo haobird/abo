@@ -20,16 +20,32 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: harbor
+  name: jenkins2
   namespace: kube-ops
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
-  - match: Host(`registry.mzone.me`)
+  - match: Host(`jenkins2.mzone.me`)
     kind: Rule
     services:
-    - name: harbor
-      port: 443
-  tls:
-    certResolver: default
+    - name: jenkins2
+      port: 8080
+
+---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: harbor
+#   namespace: kube-ops
+# spec:
+#   entryPoints:
+#     - websecure
+#   routes:
+#   - match: Host(`registry.mzone.me`)
+#     kind: Rule
+#     services:
+#     - name: harbor
+#       port: 443
+#   tls:
+#     certResolver: default

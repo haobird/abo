@@ -59,7 +59,7 @@ spec:
         - name: DB_PORT
           value: "5432"
         - name: DB_USER
-          value: gitlab
+          value: postgres
         - name: DB_PASS
           value: passw0rd
         - name: DB_NAME

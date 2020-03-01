@@ -16,3 +16,16 @@ kubectl get pods -n kube-system   # 查看当前命名空间的pos
 kubectl logs -f traefik-6b99d57df-dv9j9 -n kube-system      # 查看具体的pods日志
 
 ```
+
+### 关于 授权的 相关知识
+
+- 参考链接：
+
+1. https://github.com/acmesh-official/acme.sh/issues/157
+
+
+#### cer转crt (另外 cer 可以直接当crt文件用)
+
+```
+openssl x509 -inform PEM -in certificate.cer -out certificate.crt
+```

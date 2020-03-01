@@ -82,19 +82,3 @@ spec:
   - name: agent
     port: 50000
     targetPort: agent
-
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: jenkins2
-  namespace: kube-ops
-spec:
-  entryPoints:
-    - web
-  routes:
-  - match: Host(`jenkins2.mzone.me`)
-    kind: Rule
-    services:
-    - name: jenkins2
-      port: 8080
