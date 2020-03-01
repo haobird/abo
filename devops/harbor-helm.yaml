@@ -18,83 +18,83 @@ persistence:
   resourcePolicy: "keep"
   persistentVolumeClaim:
     registry:
-      # existingClaim: "opspvc"
-      storageClass: "local-storage"
+      existingClaim: "opspvc"
+      # storageClass: "local-storage"
       subPath: "registry"
     chartmuseum:
-      # existingClaim: "opspvc"
-      storageClass: "local-storage"
+      existingClaim: "opspvc"
+      # storageClass: "local-storage"
       subPath: "chartmuseum"
     jobservice:
-      # existingClaim: "opspvc"
-      storageClass: "local-storage"
+      existingClaim: "opspvc"
+      # storageClass: "local-storage"
       subPath: "jobservice"
     database:
-      # existingClaim: "opspvc"
-      storageClass: "local-storage"
+      existingClaim: "opspvc"
+      # storageClass: "local-storage"
       subPath: "database"
     redis:
-      # existingClaim: "opspvc"
-      storageClass: "local-storage"
+      existingClaim: "opspvc"
+      # storageClass: "local-storage"
       subPath: "redis"
 
-# nginx:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+nginx:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# portal:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+portal:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# core:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+core:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# jobservice:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+jobservice:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# registry:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+registry:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# chartmuseum:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+chartmuseum:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# clair:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+clair:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# notary:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+notary:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# database:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+database:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
-# redis:
-#   tolerations:
-#     - operator: "Exists"
-#   nodeSelector:
-#     kubernetes.io/hostname: ip-172-26-7-117
+redis:
+  tolerations:
+    - operator: "Exists"
+  nodeSelector:
+    kubernetes.io/hostname: ip-172-26-7-117
 
