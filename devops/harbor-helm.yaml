@@ -14,23 +14,28 @@ expose:
 externalURL: https://registry.mzone.me
 
 persistence:
-  enabled: false
+  enabled: true
   resourcePolicy: "keep"
   persistentVolumeClaim:
     registry:
-      existingClaim: "opspvc"
+      # existingClaim: "opspvc"
+      storageClass: "local-storage"
       subPath: "registry"
     chartmuseum:
-      existingClaim: "opspvc"
+      # existingClaim: "opspvc"
+      storageClass: "local-storage"
       subPath: "chartmuseum"
     jobservice:
-      existingClaim: "opspvc"
+      # existingClaim: "opspvc"
+      storageClass: "local-storage"
       subPath: "jobservice"
     database:
-      existingClaim: "opspvc"
+      # existingClaim: "opspvc"
+      storageClass: "local-storage"
       subPath: "database"
     redis:
-      existingClaim: "opspvc"
+      # existingClaim: "opspvc"
+      storageClass: "local-storage"
       subPath: "redis"
 
 nginx:
